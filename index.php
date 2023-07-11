@@ -13,4 +13,32 @@ $app->get('/', function(Request $request, Response $response, $args){
     return $response;
 });
 
+$app->get('/usuarios', function(Request $request, Response $response, $args){
+    $usuarios = [
+        '1' => 'asd',
+        '2' => 'asd1',
+        '3' => 'asd2',
+        '4' => 'asd3',
+        '5' => 'asd4',
+        '6' => 'asd5',
+    ];
+
+    $response->getBody()->write(json_encode($usuarios));
+    return $response->withHeader('Content-type', 'application/json');
+});
+
+$app->get('/usuarios/{id}', function(Request $request, Response $response, $args){
+    $usuarios = [
+        '1' => 'asd',
+        '2' => 'asd1',
+        '3' => 'asd2',
+        '4' => 'asd3',
+        '5' => 'asd4',
+        '6' => 'asd5',
+    ];
+    $usuario[$args['id']] = $usuarios[$args['id']];
+    $response->getBody()->write(json_encode($usuario));
+    return $response->withHeader('Content-type', 'application/json');
+});
+
 $app->run();
