@@ -1,5 +1,5 @@
-<?php 
-
+<?php
+//https://www.bing.com/videos/search?q=api+php+com+slim&docid=603530286230999200&mid=79731093B70D072F1B0779731093B70D072F1B07&view=detail&FORM=VIRE
 require __DIR__ . '/vendor/autoload.php';
 
 use Psr\Http\Message\ResponseInterface as Response;
@@ -8,12 +8,12 @@ use Slim\Factory\AppFactory;
 
 $app = AppFactory::create();
 
-$app->get('/', function(Request $request, Response $response, $args){
+$app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("asda adsd as");
     return $response;
 });
 
-$app->get('/usuarios', function(Request $request, Response $response, $args){
+$app->get('/usuarios', function (Request $request, Response $response, $args) {
     $usuarios = [
         '1' => 'asd',
         '2' => 'asd1',
@@ -27,7 +27,7 @@ $app->get('/usuarios', function(Request $request, Response $response, $args){
     return $response->withHeader('Content-type', 'application/json');
 });
 
-$app->get('/usuarios/{id}', function(Request $request, Response $response, $args){
+$app->get('/usuarios/{id}', function (Request $request, Response $response, $args) {
     $usuarios = [
         '1' => 'asd',
         '2' => 'asd1',
